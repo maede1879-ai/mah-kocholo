@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .chat-container {
+            width: 600px;
+            height: 900px;
+            margin: 50px auto;
+            background-color: #001900;
+            border: 2px solid #00FF00;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        .birthday-message {
+            font-size: 24px;
+            color: #FF69B4; /* Hot Pink */
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .wishes-section {
+            font-size: 14px;
+            color: #00FF00;
+            margin: 20px 0;
+        }
+
+        .wishes-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 16px;
+        }
+
+        .wishes-list li {
+            margin-bottom: 10px;
+        }
+
+        .album-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .album-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .album-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            border: 3px solid #FF69B4;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .album-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .creepy-button {
+            display: block;
+            margin: 80px auto;
+            padding: 10px 20px;
+            background-color: #FF0000;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #FF0000;
+            transition: transform 0.3s ease;
+            position: absolute;
+        }
+
+        .creepy-button:hover {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            background-color: #003300;
+            padding: 10px;
+            font-size: 12px;
+        }
+
+        .security {
+            margin-bottom: 5px;
+        }
+
+        .personal-info {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <span class="title">Happy Birthday Page</span>
+        </div>
+        
+        <!-- Birthday message section -->
+        <div class="birthday-message">
+            🎉🎂 Happy Birthday, kocholo! 🎂🎉
+        </div>
+
+        <!-- Wishes section -->
+        <div class="wishes-section">
+            <h3>Hey kocholo, happy birthday to us.</h3>
+            <ul class="wishes-list">
+                <li>On your birthday, you gotta eat a ton of food so you stay strong and energized all year long!</li>
+                <li>Get some good rest, and then hit the books hard!</li>
+                <li>If you don't study, I'll make you eat tacos (you know what I mean)!</li>
+                <li>Always stay happy, chase your dreams, and keep being the kind and cute person you are.</li>
+            </ul>
+        </div><br>
+
+        <!-- Photo Album section -->
+        <div class="album-section">
+            <h3>Memories with us:</h3>
+            <div class="album-container">
+                <img src="photo_5837109217150570032_x.jpg" alt="Memory 1">
+                <img src="photo_5837109217150570036_x.jpg" alt="Memory 2">
+                <img src="photo_5837109217150570039_x.jpg" alt="Memory 3">
+                <img src="photo_5837109217150570041_x.jpg" alt="Memory 4">
+				 <img src="photo_5837109217150570040_x.jpg" alt="Memory 1">
+                <img src="photo_5837109217150570034_x.jpg" alt="Memory 2">
+                <img src="photo_5837109217150570037_x.jpg" alt="Memory 3">
+                <img src="photo_5837109217150570031_x.jpg" alt="Memory 4">
+            </div>
+
+            <!-- Creepy button -->
+            <button class="creepy-button">Don't Click Here!</button>
+        </div>
+
+        <div class="footer">
+            <div class="security">
+                <span>Boommm<br>
+What was that sound? <br>
+Nothing, Reza ate so much birthday cake that he exploded.</span>
+                <span></span>
+            </div>
+            <div class="personal-info"></div>
+        </div>
+    </div>
+
+    <script>
+        let clickCount = 0; // شمارنده کلیک‌ها
+
+        // Actions after clicking the "Don't Click Here!" button
+        document.querySelector(".creepy-button").addEventListener("click", function() {
+            clickCount++; // افزایش شمارنده کلیک‌ها
+
+            // اگر سه بار روی دکمه کلیک شد، پیام به کاربر داده می‌شود
+            if (clickCount === 3) {
+                alert("از دست تو");
+				 alert("تولدمون مبارک");
+                clickCount = 0; // شمارنده کلیک‌ها بازنشانی می‌شود
+            } else {
+                // دکمه جابجا می‌شود
+                moveButton();
+            }
+        });
+
+        // تابع برای جابجا کردن دکمه
+        function moveButton() {
+            const button = document.querySelector(".creepy-button");
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
